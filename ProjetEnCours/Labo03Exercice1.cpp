@@ -35,6 +35,7 @@ int main()
 	//if (reponse <= 5 && reponse >=1)
 	// Erreur possible : if (1 <= reponse <= 5)
 
+	if (!(reponse <1 || reponse > 5))
 
 	if (reponse >=1 && reponse <=5)
 	
@@ -75,7 +76,13 @@ int main()
 			std::cout << "La soustration";
 			break;
 		case 3 :
-			std::cout << "L'addition";
+			std::cout << "La multiplication";
+			break;
+		case 4 : 
+			std::cout << "La division";
+			break;
+		case 5:
+			std::cout << "Le modulo";
 			break;
 		}
 
