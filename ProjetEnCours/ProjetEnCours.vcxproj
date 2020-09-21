@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FeuilleDeNotesOuErreurs.cpp" />
-    <ClCompile Include="Labo03Exercice3.cpp" />
+    <ClCompile Include="Labo03Exercice5.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
