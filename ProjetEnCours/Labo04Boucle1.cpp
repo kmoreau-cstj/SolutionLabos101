@@ -46,7 +46,7 @@ int main()
 
 
 	// Le programme valide que le nombre est bien compris entre 5 et 20
-	while (!(nbEtoiles >=MIN && nbEtoile <= MAX))
+	while (!(nbEtoiles >=MIN && nbEtoiles <= MAX))
 	{
 		cout << "Erreur : le nombre n'est ..." << endl;
 
