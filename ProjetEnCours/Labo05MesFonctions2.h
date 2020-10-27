@@ -4,3 +4,7 @@
 int calculerCarre(int entier);
 int calculerCube(int nb);
 double calculerCube(double valeur);
+double calculerFactorielle(int nombre);
+
+int validerNombrePositif(int nombre);
+
