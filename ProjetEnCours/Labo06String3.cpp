@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>					// Bibliothèque offrant les fonctions spécifiques aux string : getline
 
+#include "Labo06Fonctions.h"
+
 using namespace std;				// Pour éviter de répéter le std:: devant les instructions comme cout, cin, endl, ...
 
 
@@ -17,19 +19,28 @@ int main()
 	const int MAX = 10;
 
 	// Déclaration des variables
-	int nombre;
+	string clavier;			// Cette variable permet de lire le contenu de la mémoire du clavier et surtout de vider
+							// tout le contenu de la mémoire après la lecture
+	double nombre;
+	char symbole;
 
 	cout << "Veuillez entrer un nombre entier : ";
-	cin >> nombre;
+	// cin >> nombre;
+	nombre = saisirReel();
 
 	while (nombre < MIN || nombre > MAX)
 	{
 		cout << "Erreur : Le nombre doit être compris entre " << MIN << " et " << MAX << "." << endl;
 		cout << "Veuillez entrer un nombre entier : ";
-		cin >> nombre;
+		//cin >> nombre;
+		nombre = saisirReel();
 	}
 
 	cout << "votre nombre est : " << nombre << endl;
+
+	cout << "Entrez un caractère :";
+	symbole = saisirCaractere();
+	cout << "Votre caractère est  : " << symbole << endl;
 
 	return 0;
 }
