@@ -21,19 +21,19 @@ int main()
 	// Déclaration des variables
 	string clavier;			// Cette variable permet de lire le contenu de la mémoire du clavier et surtout de vider
 							// tout le contenu de la mémoire après la lecture
-	double nombre;
+	int nombre;
 	char symbole;
 
 	cout << "Veuillez entrer un nombre entier : ";
 	// cin >> nombre;
-	nombre = saisirReel();
+	nombre = saisirEntier();
 
 	while (nombre < MIN || nombre > MAX)
 	{
 		cout << "Erreur : Le nombre doit être compris entre " << MIN << " et " << MAX << "." << endl;
 		cout << "Veuillez entrer un nombre entier : ";
 		//cin >> nombre;
-		nombre = saisirReel();
+		nombre = saisirEntier();
 	}
 
 	cout << "votre nombre est : " << nombre << endl;

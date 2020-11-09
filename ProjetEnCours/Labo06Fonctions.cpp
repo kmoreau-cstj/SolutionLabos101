@@ -18,9 +18,16 @@ int saisirEntier()
 	// Tant que 1. clavier est vide (clavier.empty() ou clavier == "") OU
 	//          2. clavier ne commence pas (at(0), front(), [0]) par un chiffre (valeur positive) OU  commence  par le signe - et n'est pas suivi d'un chiffre
 
-	while (clavier == ""
+
+	/*while (clavier == ""
 		|| ((clavier.front() < '0' || clavier.front() > '9')
-			|| (clavier.front() == '-' && (clavier.at(1) < '0' || clavier.at(1) > '9'))))
+			|| (clavier.front() == '-' && (clavier.at(1) < '0' || clavier.at(1) > '9'))))*/
+	
+
+	while (!(!clavier.empty() && ((clavier.front() >= '0' && clavier.front() <= '9')
+			|| (clavier.length() > 1 && clavier.front() == '-' && clavier.at(1) >= '0' && clavier.at(1) <= '9'))))
+
+	
 	{
 		cout << "Erreur : vous devez entrer un entier." << endl;
 		cout << "Veuillez entrer un nombre entier : ";
@@ -52,9 +59,12 @@ double saisirReel()
 	// Tant que 1. clavier est vide (clavier.empty() ou clavier == "") OU
 	//          2. clavier ne commence pas (at(0), front(), [0]) par un chiffre (valeur positive) OU  commence  par le signe - et n'est pas suivi d'un chiffre
 
-	while (clavier == ""
+	/*while (clavier == ""
 		|| ((clavier.front() < '0' || clavier.front() > '9')
-			|| (clavier.front() == '-' && (clavier.at(1) < '0' || clavier.at(1) > '9'))))
+			|| (clavier.front() == '-' && (clavier.at(1) < '0' || clavier.at(1) > '9'))))*/
+	while (!(!clavier.empty() && ((clavier.front() >= '0' && clavier.front() <= '9')
+		|| (clavier.length() > 1 && clavier.front() == '-' && clavier.at(1) >= '0' && clavier.at(1) <= '9'))))
+
 	{
 		cout << "Erreur : vous devez entrer un nombre." << endl;
 		cout << "Veuillez entrer un nombre : ";
