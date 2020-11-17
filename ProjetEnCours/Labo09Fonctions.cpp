@@ -97,3 +97,78 @@ void saisirValeurDansVecteur(vector<int>& vec, int quitter)
 
 
 }
+
+int calculerSommeVecteur(vector<int> vec)
+{
+	// Déclaration des variables
+	// Information fournies par l'utilisateur : rien puisque les données proviennent directement du paramètre vec
+	// Résultat à obtenir
+	int somme=0;					// Au départ, la somme vaut 0, car on a additionné aucun nombre
+
+
+	// Il faut parcourir toutes les cases du vecteur. Elles sont numérotées de 0 à size()-1
+	// Ici i représente le numéro de la case, la cellule, de l'élément du vecteur
+	for (int numeroCase	 = 0; numeroCase < vec.size(); numeroCase++)
+	{
+		somme = somme + vec.at(numeroCase);			// vec.at(numeroCase) permet d'aller chercher le contenu de la case
+	}
+	return somme;
+
+}
+
+float calculerMoyenneVecteur(const vector<int>& vec)
+{
+	// Déclaration des variables
+	float resultat;
+	/*
+	for (int i = 0; i < vec.size(); i++)
+	{
+		somme = somme + vec.at(i);
+	}
+	*/
+
+	// ATTENTION : la division par zéro est une erreur. Il faut s'assurer que le vecteur n'est pas vide
+	if (vec.empty())
+	{
+		cerr << "Erreur : La division par zéro est impossible." << endl;
+		system("pause");
+		return -99999999.99;
+	}
+	else
+	{
+		resultat = (float)calculerSommeVecteur(vec) / vec.size();  // int / int = int => 
+		// il faut changer le type d'un des deux opérandes en float => on caste en mettant entre parenthèse
+		// le type voulant avant la variable
+		return resultat;
+	}
+}
+
+bool trouverIntDansVec(int nombre, vector<int> vec)
+{
+	// Déclaration des variables
+	// Pour le résultat : et on considère qu'on ne trouvera pas la valeur
+	// bool result = false;
+	// On parcourt le vecteur à la recherche d'une valeur correspondant à nombre
+	for (int i = 0; i < vec.size(); i++) 
+	{
+		if (nombre == vec.at(i)) 
+		{
+			//result = true;
+			// On a trouvé une valeur correspondante, on retourne vrai et on quitte la boucle et la fonction
+			return true;
+		}
+	}
+	// Si on est ici, après la boucle, c'Est qu'on a rien trouvé, on retourne faux
+	return false;
+}
+
+int calculerFrequenceDansVecteur(vector<int> vec, int nombre)
+{
+	int nbFois = 0;
+	for (int i = 0; i < vec.size(); i++)
+	{
+		if (vec.at(i) == nombre)
+			nbFois++;
+	}
+	return nbFois;
+}

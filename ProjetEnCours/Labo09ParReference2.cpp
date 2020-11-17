@@ -38,7 +38,7 @@ int main()
 
 	*/
 
-	vector<int> vec{ 12,0,42 }; // , 0, 0, 68, 0, -15, 89, 0, 0, 0, 13, 27, 52, 2, 0, 7, 0, 0 };
+	vector<int> vec{ 12,0,42, 0, 0, 68, 0, -15, 89, 0, 0, 0, 13, 27, 52, 2, 0, 7, 0, 0 };
 	vector<int> vecVide;
 
 
@@ -56,7 +56,7 @@ int main()
 	// 1.	Écrivez une fonction qui saisit les valeurs dans le vecteur (modifie les cases existantes, 
 	//      ou ajoute à la fin si plus de place) tant que l’utilisateur n’a pas entré la valeur passée 
 	//      en paramètre pour mettre fin à la saisie, par exemple -1.
-	saisirValeurDansVecteur(vec, -1);
+	/*saisirValeurDansVecteur(vec, -1);
 	cout << "Contenu de vec après l'ajout :" << endl;
 	afficherContenuVecteur(vec);
 
@@ -64,6 +64,48 @@ int main()
 
 	cout << "Contenu de vec après l'ajout :" << endl;
 	afficherContenuVecteur(vecVide);
+	*/
+
+	//2. Écrivez une fonction qui retourne la somme des éléments du vecteur.
+	cout << "La somme des éléments du vecteur vec est  : " << calculerSommeVecteur(vec) << endl;
+	cout << "La somme des éléments du vecteur vecVide est  : " << calculerSommeVecteur(vecVide) << endl;
+
+	// 3. Écrivez une fonction qui calcule la moyenne des éléments du vecteur.
+	cout << "La moyenne des éléments du vecteur vecVide est  : " << calculerMoyenneVecteur(vecVide) << endl;
+	cout << "La moyenne des éléments du vecteur vec est  : " << calculerMoyenneVecteur(vec) << endl;
+
+	// 4.Écrivez une fonction qui indique si une valeur est dans le vecteur.
+	// Cette fonction retourne vrai si la valeur est trouvée et faux dans le cas contraire.
+	int nombre;
+
+	cout << "Veuillez indiquer le nombre à rechercher dans le vecteur : ";
+	nombre = saisirEntier();
+	
+	if (trouverIntDansVec(nombre, vec))
+	{
+		cout << "le nombre est present dans le vecteur vec" << endl;
+	}
+	else
+	{
+		cout << "le nombre ne se trouve pas dans le vecteur vec"<<endl;
+	}
+
+	if (trouverIntDansVec(nombre, vecVide))
+	{
+		cout << "le nombre est present dans le vecteur vecVide" << endl;
+	}
+	else
+	{
+		cout << "le nombre ne se trouve pas dans le vecteur vecVide" <<endl;
+	}
+
+
+	// 5. Écrivez une fonction qui indique la fréquence d’une valeur dans le vecteur.
+	//    Cette fonction compte le nombre de fois que la valeur passée en paramètre apparait dans le vecteur 
+	//    et retourne la fréquence.
+	cout << nombre << " se retrouve " << calculerFrequenceDansVecteur(vec, nombre) << " fois dans le vecteur." << endl;
+
+	cout << nombre << " se retrouve " << calculerFrequenceDansVecteur(vecVide, nombre) << " fois dans le vecteur." << endl;
 
 
 

@@ -33,3 +33,11 @@ void afficherContenuVecteur(vector<int> vec);
 void ajouterValeurALaFinDuVecteur(vector<int>& vec, int nbElement);
 
 void saisirValeurDansVecteur(vector<int>& vec, int quitter);
+
+//int calculerSommeVecteur(const vector<int>& vec);
+int calculerSommeVecteur(vector<int> vec);
+float calculerMoyenneVecteur(const vector<int>& vec);
+bool trouverIntDansVec(int nombre, vector<int> vec);
+
+int calculerFrequenceDansVecteur(vector<int> vec, int nombre);
+
