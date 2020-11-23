@@ -1,0 +1,92 @@
+Après la lecture d'une ligne dans le fichier : 
+Nom : Audet
+Prénom : Nicole
+Note 1 : 30
+Note 2 : 30
+Note 3 : 28
+Note finale 88
+Félicitations ! vous avez réussi le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Boileau
+Prénom : Claude
+Note 1 : 10
+Note 2 : 20
+Note 3 : 30
+Note finale 60
+Félicitations ! vous avez réussi le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Bonhomme
+Prénom : Fernand
+Note 1 : 30
+Note 2 : 30
+Note 3 : 30
+Note finale 90
+Félicitations ! vous avez réussi le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Charron
+Prénom : Guy
+Note 1 : 2
+Note 2 : 2
+Note 3 : 2
+Note finale 6
+Malgré tous vos efforts, il faut reprendre le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Dubreuil
+Prénom : Lucienne
+Note 1 : 30
+Note 2 : 30
+Note 3 : 39
+Note finale 99
+Félicitations ! vous avez réussi le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Etienne
+Prénom : Luc
+Note 1 : 10
+Note 2 : 10
+Note 3 : 10
+Note finale 30
+Malgré tous vos efforts, il faut reprendre le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Fortin
+Prénom : Marie-Noelle
+Note 1 : 20
+Note 2 : 18
+Note 3 : 18
+Note finale 56
+Malgré tous vos efforts, il faut reprendre le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Fournier
+Prénom : Richard
+Note 1 : 20
+Note 2 : 20
+Note 3 : 21
+Note finale 61
+Félicitations ! vous avez réussi le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Lalonde
+Prénom : Claudine
+Note 1 : 15
+Note 2 : 20
+Note 3 : 25
+Note finale 60
+Félicitations ! vous avez réussi le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Malouin
+Prénom : Jules
+Note 1 : 20
+Note 2 : 10
+Note 3 : 12
+Note finale 42
+Malgré tous vos efforts, il faut reprendre le cours.
+Après la lecture d'une ligne dans le fichier : 
+Nom : Maranda
+Prénom : Armande
+Note 1 : 30
+Note 2 : 30
+Note 3 : 38
+Note finale 98
+Félicitations ! vous avez réussi le cours.
+Le nombre total d'étudiants est : 11
+La moyenne du groupe est de : 62.7273
+La meilleure note est : 99 obtenue par Lucienne
+La note la plus basse est : 6
