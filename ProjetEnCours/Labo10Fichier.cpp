@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <fstream>				// Bibliothèque pour utiliser les fichiers
+#include <iomanip>				// Bibliothèque qui fournit des fonctions pour formater l'affichage (dimension des colonnes,
+								// alignement du texte, pour formater l'affichage des nombres virgule, ...)
 
 using namespace std;				// Pour éviter de répéter le std:: devant les instructions comme cout, cin, endl, ...
 
@@ -12,6 +14,21 @@ int main()
 {
 	setlocale(LC_ALL, "");
 	// Déclaration des constantes
+	/*
+----------------------------------------------------------------------------------
+Nom             Prénom              Eval 1    Eval 2    Eval 3     Total Résultats 
+----------------------------------------------------------------------------------	
+	*/
+	const int COL1 = 17;
+	const int COL2 = 17;
+	const int COL3 = 10;
+	const int COL4 = 10;
+	const int COL5 = 10;
+	const int COL6 = 10;
+	const int COL7 = 10;
+
+	const int LIGNE = COL1 + COL2 + COL3 + COL4 + COL5 + COL6 + COL7;
+	const string TITRE = "Résultats du cours de programmation structurée";
 
 
 	// Première partie : Création du canal d'entrée comme le cin
@@ -32,6 +49,7 @@ int main()
 	ifEntree.open(FICHIER_ENTREE, ios::in);
 	// 3. Il faut associer le canal de sortie à sa destination sur le disque dur
 	ofSortie.open(FICHIER_RESULTAT, ios::out);				// Open va tenter de créer le fichier de sortie
+															// Le mode ios::out écrase le fichier s'il est déjà existant
 
 	// 4. il faut s'assurer que le canal a bien été ouvert
 	if (!ifEntree)
@@ -48,6 +66,37 @@ int main()
 		exit(400);			// Quitte le programme avec un code d'erreur.
 
 	}
+	// 4. Il faut s'assurer que le canal de sortie a bien créé le fichier résultat
+	if (!ofSortie)
+	{
+		cerr << "Erreur : le fichier " << FICHIER_RESULTAT << " n'a pas été créé." << endl;
+		cerr << "Vérifiez l'espace disponible sur le disque dur." << endl;
+		cerr << "Ou vérifiez que vous avez les droits nécessaires pour créer ce fichier" << endl;
+		system("pause");
+		// On quitte le programme car on ne peut pas enregistrer les résultats
+		exit(900);
+	}
+
+	// Ici les deux canaux sont en place : ifEntree peut remplacer le cin et ofSortie peut remplacer le cout
+
+	// Une fois que le fichier de sortie est créé, il faut souvent créer l'en-tête du fichier
+	/*
+	----------------------------------------------------------------------------------
+                  Résultats du cours de programmation structurée
+	----------------------------------------------------------------------------------
+	Nom             Prénom              Eval 1    Eval 2    Eval 3     Total Résultats 
+	----------------------------------------------------------------------------------
+	*/
+
+	// On fait la ligne de tirets
+	// setw crée une colonne invisible de taille passée en paramètre dans laquelle les données suivantes vont venir s'insérer.
+	ofSortie << setfill('-') <<setw(LIGNE) << "-" << setfill(' ') << endl;
+	ofSortie << setw((LIGNE - TITRE.length()) / 2) << " " << TITRE << endl;
+	ofSortie << setfill('-') << setw(LIGNE) << "-" << setfill(' ') << endl;
+	ofSortie << left <<setw(COL1) << "Nom" << setw(COL2) << "Prénom" << right << setw(COL3) << "Examen 1" << setw(COL4);
+	ofSortie << "TP 1" << setw(COL5) << "Eval 3" << setw(COL6) << "Total" << left << setw(COL7) << " Résultats" << right << endl;
+	ofSortie << setfill('-') << setw(LIGNE) << "-" << setfill(' ') << endl;
+
 
 
 	// Deuxième partie : La lecture des informations qui sont dans le fichier
@@ -57,16 +106,17 @@ int main()
 	// 1. les données fournies par l'utilisateur et/ou par un fichier de données
 	string nomEtudiant;
 	string prenomEtudiant;
-	int noteEval1;
-	int noteEval2;
-	int noteEval3;
+	float noteEval1;
+	float noteEval2;
+	float noteEval3;
 	// 2. Les résultats du programme. Ces variables doivent généralement être initialisées, leur donne une valeur de départ
-	int noteFinale=0;				// c'est une somme, au départ, il n'y a pas de note donc la somme peut être à 0
+	float noteFinale=0;				// c'est une somme, au départ, il n'y a pas de note donc la somme peut être à 0
 	int nbEtudiant =0 ;				// Au départ ou si le fichier est vide, le nb d'étudiant est à 0
-	int noteMax;					// On ne peut pas initialiser ces trois prochaines variables pour l'instant
-	int noteMin;
+	float noteMax;					// On ne peut pas initialiser ces trois prochaines variables pour l'instant
+	float noteMin;
 	string prenomMax;
 	float moyenne= 0;				// Au départ on n'a pas de note donc la moyenne est à 0
+	string resultat;
 
 
 	// 2. Il faut lire les informations dans le fichier en utilisant le canal comme on utilisait le cin
@@ -95,21 +145,24 @@ int main()
 		// Ici on sait qu'on a bien des informations pour chaque champ
 		// On peut appliquer des traitements (calculs) sur les données lues
 		
-		ofSortie << "Après la lecture d'une ligne dans le fichier : " << endl;
-		ofSortie << "Nom : " << nomEtudiant << endl;
-		ofSortie << "Prénom : " << prenomEtudiant << endl;
-		ofSortie << "Note 1 : " << noteEval1 << endl;
-		ofSortie << "Note 2 : " << noteEval2 << endl;
-		ofSortie << "Note 3 : " << noteEval3 << endl;
 		// On calcule et affiche la note finale pour le cours
 		noteFinale = noteEval1 + noteEval2 + noteEval3;
-		ofSortie << "Note finale " << noteFinale << endl;
 		if (noteFinale >= 60)
 		{
-			ofSortie << "Félicitations ! vous avez réussi le cours." << endl;
+			resultat = " Succès";
 		}
 		else
-			ofSortie << "Malgré tous vos efforts, il faut reprendre le cours." << endl;
+			resultat = " Echec";
+		// On formate l'affichage des nombres réels avec 2 chiffres après la virgule. 
+		// Il faut commencer par imposer que la virgule des float ne bouge pas. fixed
+		// Quand fixed est en place alors setprecision indique le nombre de chiffres après la virgule
+		ofSortie << fixed << setprecision(2);
+		ofSortie << left << setw(COL1) << nomEtudiant << setw(COL2) << prenomEtudiant << right << setw(COL3) << noteEval1 << setw(COL4);
+		ofSortie << noteEval2 << setw(COL5) << noteEval3 << setw(COL6) << noteFinale << left << setw(COL7) << resultat << right << endl;
+
+
+
+
 		// On doit ajuster les résultats qui seront afficher après la boucle
 		moyenne = moyenne + noteFinale;
 		nbEtudiant++;
@@ -131,22 +184,27 @@ int main()
 		ifEntree >> noteEval1;
 		ifEntree >> noteEval2;
 		ifEntree >> noteEval3;
-	}
+	}// Fin du while eof
 
 
 	// A la fin, après la lecture de tous les enregistrements, 
 	// on peut avoir d'autres traitements (calculs, ou afficher des résultats, ...)
 	if (nbEtudiant > 0)
 	{
-		// On souhaite connaitre le nombre total d'étudiants
-		ofSortie << "Le nombre total d'étudiants est : " << nbEtudiant << endl;
+		ofSortie << setfill('-') << setw(LIGNE) << "-" << setfill(' ') << endl;
+		ofSortie << "Statistiques" << endl;
 		// On voudrait savoir la moyenne totale du groupe
 		moyenne = moyenne / nbEtudiant;
-		ofSortie << "La moyenne du groupe est de : " << moyenne << endl;
+		ofSortie << left << setw(COL1) << "Moyenne" << setw(COL2) << " " << right << setw(COL3) << " " << setw(COL4);
+		ofSortie << " " << setw(COL5) << " " << setw(COL6) << moyenne << left << setw(COL7) << " " << right << endl;
+		ofSortie << setfill('-') << setw(LIGNE) << "-" << setfill(' ') << endl;
+
+
 		// On voudrait connaitre la meilleure note et le prénom de l'étudiant ayant cette meilleure note
 		ofSortie << "La meilleure note est : " << noteMax << " obtenue par " << prenomMax << endl;
 		// on voudrait connaitre la note la plus basse
 		ofSortie << "La note la plus basse est : " << noteMin << endl;
+		ofSortie << setfill('-') << setw(LIGNE) << "-" << setfill(' ') << endl;
 
 	}
 	else
@@ -155,7 +213,9 @@ int main()
 
 	cout << "Fin du fichier"<< endl;
 
-
+	// A la fin du programme de fermer les fichiers que l'on a ouvert
+	ifEntree.close();
+	ofSortie.close();			// Pour ofSortie, cela force le système d'exploitation à écrire sur le disque dur
 
 
 
