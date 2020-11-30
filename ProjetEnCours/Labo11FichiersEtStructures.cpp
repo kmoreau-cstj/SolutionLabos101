@@ -2,11 +2,11 @@
 // Auteur : Karine Moreau
 // Date : 2020
 
-#include <iostream>
-#include <fstream>			// Bibliothèque qui fournit les fonctions pour utiliser les fichiers dans un programme (open, >>, <<, getline, ...)
+//#include <iostream>
+//#include <fstream>			// Bibliothèque qui fournit les fonctions pour utiliser les fichiers dans un programme (open, >>, <<, getline, ...)
 #include "Labo11Fonctions.h"
 
-using namespace std;				// Pour éviter de répéter le std:: devant les instructions comme cout, cin, endl, ...
+//using namespace std;				// Pour éviter de répéter le std:: devant les instructions comme cout, cin, endl, ...
 
 
 int main()
@@ -16,11 +16,6 @@ int main()
 	// Déclaration des constantes
 	const string FICHIER_DONNEES = "DonneesDesTitres.txt";
 	const string FICHIER_RESULTAT = "TDM.txt";
-	const string TITRE = "Table des matières";
-	const string TYPE_SECTION = "Chapitre";
-	const char SEPARATEUR_SECTION = ':';
-	const char POINTE_DE_SUITE = '.';
-
 
 	// Déclaration des variables
 	// 0. Si le programme doit accéder au disque dur, cela prend un canal pour chaque fichier
@@ -39,10 +34,28 @@ int main()
 	ouvrirFichierEnLecture(FICHIER_DONNEES, canalIn);		// Appel de la fonction pour s'assurer que le canal sera bien ouvert
 	creerFichierEnEcriture(FICHIER_RESULTAT, canalOut);
 
+	// On va créer l'en-tête dans le fichier de sortie à l'aide d'une fonction
+	ecrireEnTete(canalOut, TITRE, 3/* indique le nombre de lignes faites après l'affichage du titre*/);
 
 	// On TENTE de lire le premier enregistrement dans le fichier d'entrée à l'aide d'une fonction
 	lireEnregistrement(canalIn, laSectionCourante);
-	laSectionCourante = lireEnregistrement(canalIn);
+
+	// On vérifie si la lecture a bien réussi tant qu'on n'a pas atteint la fin du fichier (end of file :eof())
+	while (!canalIn.eof())
+	{
+		// On affiche à l'écran pour s'assurer que la lecture est correcte
+
+		// On veut écrire l'enregistrement bien formaté dans le fichier de sortie
+		ecrireEnregistrement(canalOut, laSectionCourante, numeroSection);
+		
+
+		// A LA FIN de la boucle, on doit TENTER de lire l'enregistrement suivant pour mettre à jour le eof
+		laSectionCourante = lireEnregistrement(canalIn);
+
+	}
+
+	canalIn.close();
+	canalOut.close();
 
 
 
