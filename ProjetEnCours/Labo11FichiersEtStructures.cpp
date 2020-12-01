@@ -48,11 +48,15 @@ int main()
 		// On veut écrire l'enregistrement bien formaté dans le fichier de sortie
 		ecrireEnregistrement(canalOut, laSectionCourante, numeroSection);
 		
+		// On augmente le numéro du chapitre pour le prochain affichage
+		numeroSection++;
 
 		// A LA FIN de la boucle, on doit TENTER de lire l'enregistrement suivant pour mettre à jour le eof
 		laSectionCourante = lireEnregistrement(canalIn);
 
 	}
+
+	// On peut avoir après la boucle écrire un pied de page dans le fichier de sortie
 
 	canalIn.close();
 	canalOut.close();

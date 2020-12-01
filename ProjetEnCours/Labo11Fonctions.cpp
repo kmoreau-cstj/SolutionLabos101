@@ -74,6 +74,8 @@ void ecrireEnTete(ofstream& canal, const string TITRE, int nbLigneApresTitre)
 void ecrireEnregistrement(ofstream& canal, section sectionAEcrire, int numeroChapitre)
 {
 	//Chapitre 1  : Introduction au C++.................................................1
-
+	canal << left << setw(COL1) << TYPE_SECTION << right << setw(COL2) << numeroChapitre <<left;
+	canal << setw(COL3) << SEPARATEUR_SECTION << setfill(POINTE_DE_SUITE) << setw(COL4) << sectionAEcrire.nomChapitre;
+	canal << right << setw(COL5) << sectionAEcrire.numeroPage << setfill(' ') << endl;
 
 }

@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Donnees.txt" />
     <Text Include="DonneesDesTitres.txt" />
+    <Text Include="TDM.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Labo11FichiersEtStructures.cpp" />

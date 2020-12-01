@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Donnees.txt">
+    <Text Include="DonneesDesTitres.txt">
       <Filter>Fichiers de ressources</Filter>
     </Text>
-    <Text Include="DonneesDesTitres.txt">
+    <Text Include="TDM.txt">
       <Filter>Fichiers de ressources</Filter>
     </Text>
   </ItemGroup>

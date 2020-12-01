@@ -17,8 +17,8 @@ const char POINTE_DE_SUITE = '.';
 //Chapitre 1  : Introduction au C++.................................................1
 const int COL1 = TYPE_SECTION.length() + 1;	// La colonne est de longueur la longueur de la section + un espace pour décoler 
 											// de l'information suivante
-const int COL2 = 3 + 1;						// on permet 3 chiffres pour le numéro de la section donc un livre
-											// pourrait avoir plus de 100 chapitres + 1 espace
+const int COL2 = 2;						    // on permet 2 chiffres pour le numéro de la section donc un livre
+											// pourrait avoir au maximum 99 chapitres
 const int COL3 = SEPARATEUR_SECTION.length();
 const int COL4 = 60;						// On permet 60 caractères pour afficher le titre qui sera complété par des points de suite
 const int COL5 = 5;							// On permet qu'un libre ait plus de 10 000 pages. 

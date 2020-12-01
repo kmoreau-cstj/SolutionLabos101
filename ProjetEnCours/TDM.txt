@@ -1,4 +1,9 @@
-                               Table des matieres
+                              Table des matieres
 
 
 
+Chapitre  1 : Introduction au C++.............................................1
+Chapitre  2 : Instructions conditionnelles...................................31
+Chapitre  3 : Itérations.....................................................57
+Chapitre  4 : Fonctions......................................................89
+Chapitre  5 : Vecteurs......................................................127
